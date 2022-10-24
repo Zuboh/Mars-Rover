@@ -8,9 +8,6 @@ export const goNorth = () => {
   y = location.y;
   y++;
   location.y = y;
-  if (location.y < 0) {
-    location.y = 0;
-  }
   if (location.y > planet.length - 1) {
     location.y = 0;
   }

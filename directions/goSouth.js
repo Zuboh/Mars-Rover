@@ -11,7 +11,7 @@ export const goSouth = () => {
   if (location.y < 0) {
     location.y = planet.length - 1;
   }
-  if (location.y > 3) {
+  if (location.y > planet.length - 1) {
     location.y = 0;
   }
   currentLocation = planet[location.x][location.y];

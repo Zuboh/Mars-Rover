@@ -1,4 +1,4 @@
-import { elaborateCommans, commands } from "./commands.js";
+import { elaborateCommands, commands } from "./commands.js";
 import { goEast } from "./directions/goEast.js";
 import { goNorth } from "./directions/goNorth.js";
 import { goSouth } from "./directions/goSouth.js";
@@ -53,4 +53,4 @@ export const moveRover = (direction) => {
 console.log(
   `Your Rover is operative and positioned at X:${location.x} Y:${location.y}`
 );
-elaborateCommans(commands);
+elaborateCommands(commands);
