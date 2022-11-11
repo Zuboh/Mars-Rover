@@ -1,8 +1,9 @@
 import { elaborateCommands, commands } from "./commands.js";
-import { goEast } from "./directions/goEast.js";
-import { goNorth } from "./directions/goNorth.js";
-import { goSouth } from "./directions/goSouth.js";
-import { goWest } from "./directions/goWest.js";
+import { foundObstacle } from "./obstacle.js";
+import { goEast } from "./directions/East.js";
+import { goSouth } from "./directions/South.js";
+import { goWest } from "./directions/West.js";
+import { goNorth } from "./directions/North.js";
 
 export let location = {
   x: 0,
@@ -28,25 +29,24 @@ export const initalLocation = () => {
   };
 };
 
+const cordinates = {
+  N: (location) => goNorth(location),
+  S: (location) => goSouth(location),
+  W: (location) => goWest(location),
+  E: (location) => goEast(location),
+};
+
 export const moveRover = (direction) => {
-  switch (direction) {
-    case "N":
-      goNorth();
-      break;
-    case "S":
-      goSouth();
-      break;
-    case "E":
-      goEast();
-      break;
-    case "W":
-      goWest();
-      break;
-    default:
-      console.log(
-        "  N -> to go Nord \n  S -> to go Sud \n  E -> to go East \n  W -> to go West"
-      );
-      break;
+  cordinates[direction](location);
+  if (location.y > planet.length - 1) {
+    location.y = 0;
+  }
+  if (location.y > planet.length - 1) {
+    location.y = 0;
+  }
+  let currentLocation = planet[location.x][location.y];
+  if (currentLocation != "X") {
+    foundObstacle(currentLocation);
   }
 };
 

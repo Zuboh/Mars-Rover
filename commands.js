@@ -3,7 +3,7 @@ import { moveRover } from "./index.js";
 export const commands = [];
 function generateCommands() {
   let result = "";
-  let cardinals = "NSEW";
+  let cardinals = "NSNS";
   for (var i = 0; i < 4; i++) {
     result = cardinals.charAt(Math.floor(Math.random() * cardinals.length));
     commands.push(result);
